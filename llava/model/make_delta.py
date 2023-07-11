@@ -19,6 +19,8 @@ def make_delta(base_model_path, target_model_path, delta_path, hub_repo_id):
     auto_upgrade(target_model_path)
     target = AutoModelForCausalLM.from_pretrained(target_model_path, torch_dtype=torch.float16, low_cpu_mem_usage=True)
 
+    import pdb
+    pdb.set_trace()
     print("Calculating delta")
     for name, param in tqdm(target.state_dict().items(), desc="Calculating delta"):
         if name not in base.state_dict():
