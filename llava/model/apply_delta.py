@@ -15,6 +15,9 @@ def apply_delta(base_model_path, target_model_path, delta_path):
     base = AutoModelForCausalLM.from_pretrained(
         base_model_path, torch_dtype=torch.float16, low_cpu_mem_usage=True)
 
+    import pdb
+    pdb.set_trace()
+
     print("Loading delta")
     delta = LlavaLlamaForCausalLM.from_pretrained(delta_path, torch_dtype=torch.float16, low_cpu_mem_usage=True)
     delta_tokenizer = AutoTokenizer.from_pretrained(delta_path)
